@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/query"
+        android:id="@+id/q"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -192,7 +192,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.20"
                 android:backgroundTint="#FFFFFF"
-                android:onClick="backButton"
+                android:onClick="bp"
                 android:text="⌫"
                 android:textColor="#1e90ff"
                 android:textSize="24sp"
@@ -464,7 +464,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
-                android:onClick="result"
+                android:onClick="r"
                 android:text="="
                 android:backgroundTint="#1e90ff"
                 android:textColor="#FFFFFF"

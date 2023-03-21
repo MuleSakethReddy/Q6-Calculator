@@ -20,18 +20,18 @@ public class main extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout);
-        qTv = findViewById(R.id.query);
+        qTv = findViewById(R.id.q);
         resTv = findViewById(R.id.result);
-        sm.put("X", "*");
-        sm.put("÷","/");
-        sm.put("√X","sqrt(");
-        sm.put("1/x","^(-1)");
-        sm.put("π","pi");
-        sm.put("ln","log(");
-        sm.put("lg","2.3026*log(");
         sm.put("sin","sin(");
         sm.put("cos","cos(");
         sm.put("tan","tan(");
+        sm.put("X", "*");
+        sm.put("÷","/");
+        sm.put("π","pi");
+        sm.put("ln","log(");
+        sm.put("√X","sqrt(");
+        sm.put("1/x","^(-1)");
+        sm.put("lg","2.3026*log(");
         sm.put("X!","!");
     }
 
@@ -58,7 +58,7 @@ public class main extends AppCompatActivity {
         qTv.setText(q);
     }
 
-    public void backButton(View v)
+    public void bp(View v)
     {
         if(q.length() > 0) {
             q = q.substring(0, q.length() - 1);
@@ -66,18 +66,18 @@ public class main extends AppCompatActivity {
         qTv.setText(q);
     }
 
-    public void result(View v)
+    public void r(View v)
     {
         Button b = (Button)v;
-        res = evaluate(q);
+        res = ev(q);
         resTv.setText(res);
     }
 
-    String evaluate(String q)
+    String ev(String q)
     {
         try{
-            Expression expression=new Expression(q); //This Library Evaluate It
-            String res = expression.eval().toString();
+            Expression e=new Expression(q); 
+            String res = e.eval().toString();
             return "="+res;
         } catch(Exception e) {
             return "Error";
