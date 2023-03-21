@@ -12,15 +12,15 @@ import com.udojava.evalex.Expression;
 import java.util.HashMap;
 
 public class main extends AppCompatActivity {
-    String query = "", res="";
-    TextView queryTv, resTv;
+    String q = "", res="";
+    TextView qTv, resTv;
     HashMap<String, String> sm = new HashMap<String, String>();
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout);
-        queryTv = findViewById(R.id.query);
+        qTv = findViewById(R.id.query);
         resTv = findViewById(R.id.result);
         sm.put("X", "*");
         sm.put("÷","/");
@@ -40,43 +40,43 @@ public class main extends AppCompatActivity {
         Button b = (Button)v;
         String buttonText = b.getText().toString();
         if(buttonText.equals("AC")){
-            query = "";
+            q = "";
             res = "";
-            queryTv.setText("0");
+            qTv.setText("0");
             resTv.setText("0");
             return;
         }
         else if(sm.containsKey(buttonText))
         {
-            query = query + sm.get(buttonText);
+            q = q + sm.get(buttonText);
         }
         else
         {
-            query = query + b.getText().toString();
+            q = q + b.getText().toString();
         }
 
-        queryTv.setText(query);
+        qTv.setText(q);
     }
 
     public void backButton(View v)
     {
-        if(query.length() > 0) {
-            query = query.substring(0, query.length() - 1);
+        if(q.length() > 0) {
+            q = q.substring(0, q.length() - 1);
         }
-        queryTv.setText(query);
+        qTv.setText(q);
     }
 
     public void result(View v)
     {
         Button b = (Button)v;
-        res = evaluate(query);
+        res = evaluate(q);
         resTv.setText(res);
     }
 
-    String evaluate(String query)
+    String evaluate(String q)
     {
         try{
-            Expression expression=new Expression(query); //This Library Evaluate It
+            Expression expression=new Expression(q); //This Library Evaluate It
             String res = expression.eval().toString();
             return "="+res;
         } catch(Exception e) {
